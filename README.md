@@ -68,7 +68,8 @@ Não permite mais que duas reservas por usuário/dia.
 
 
 
-Se eu tivesse mais tempo, faria com que o cadastro de usuários só fosse possível via convite (email)
 Não permite reservas repetidas no mesmo horário por usuário/dia.
 Não permite reservar mesa e horário já ocupados.
 Apenas administradores podem gerenciar privilégios de acesso.
+
+- Se eu tivesse mais tempo, faria com que o cadastro de usuários só fosse possível via convite (email)
