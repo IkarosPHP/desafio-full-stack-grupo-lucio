@@ -31,13 +31,14 @@ Frontend
 bash
 cd lucioSpot
 npm install
+npm run start
 # Acesse: http://localhost:4200
 
 Backend
 bash
 cd luciospot-server
 npm install
-npm run star
+npm run start
 
 # Edite o arquivo .env ou firebase.config.ts com as credenciais corretas
 
