@@ -62,7 +62,7 @@ npm run start
 ```
 
 Edite o arquivo `.env` e `firebase.config.ts` com as credenciais corretas.
-- o arquivo .env precisa conter a chave FIREBASE_API_KEY
+- o arquivo .env precisa conter a chave FIREBASE_API_KEY e o arquivo secret.json com as credencias do firebase
 
 ***
 
