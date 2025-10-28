@@ -1,0 +1,42 @@
+<div class="reserva-container">
+  <div class="mensagem">
+    {{ mensagem }}
+  </div>
+
+  <mat-form-field>
+    <mat-label>Selecione a data</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDay" [min]="today" (dateChange)="onDateChange()" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="month" [startAt]="today"></mat-datepicker>
+  </mat-form-field>
+  
+  <h2>Horário</h2>
+  <div class="slots-selector">
+    <button
+      *ngFor="let hora of horariosDisponiveis"
+      [class.active]="horarioSelecionado === hora"
+      [disabled]="!isHorarioDisponivel(hora)"
+      (click)="selecionarHorario(hora)">
+      {{ hora.label }}
+    </button>
+  </div>
+
+  <h2>Mesa</h2>
+  <div class="slots-selector">
+    <button
+      *ngFor="let mesa of mesasDisponiveis"
+      [class.active]="mesaSelecionada?.id === mesa.id"
+      [disabled]="!isMesaDisponivel(mesa.id)"
+      (click)="selecionarMesa(mesa)">
+      {{ mesa.label }}
+    </button>
+  </div>
+
+  <div class="confirm">
+    <button
+      [disabled]="!selectedDay || !mesaSelecionada || !horarioSelecionado"
+      (click)="confirmarReserva()">
+      Confirmar reserva
+    </button>
+  </div>
+</div>

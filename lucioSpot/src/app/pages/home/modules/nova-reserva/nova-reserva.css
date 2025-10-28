@@ -1,0 +1,179 @@
+.reserva-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items:center; /* ou center para centralizar horizontalmente */
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem; /* Ajuste conforme alinhamento desejado */
+  min-width: 330px;
+}
+
+.mat-form-field {
+  width: 250px;
+  min-width: 200px;
+  margin-bottom: 1rem; /* Garante espaçamento entre datepicker e horários */
+}
+
+.slots-selector {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.slots-selector button {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #efefef;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: 90px;
+  transition: background 0.2s;
+}
+
+.slots-selector button.active {
+  background: var(--dark-red, #b71c1c);
+  color: #fff;
+}
+
+.confirm {
+  text-align: center    ;
+  width: 100%;
+}
+
+.confirm button {
+  padding: 0.85rem 2.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background: var(--primary-red, #b71c1c);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.confirm button:disabled {
+  background: #aaa;
+  color: #f4f4f4;
+  cursor: not-allowed;
+}
+
+/* Responsivo simples: centraliza no mobile */
+@media (max-width: 600px) {
+  .reserva-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100vw;
+    padding: 1rem;
+  }
+  .mat-form-field {
+    width: 100%; /* ocupa toda largura possível */
+    min-width: unset;
+  }
+  .slots-selector {
+    justify-content: center;
+  }
+  .confirm {
+    text-align: center; /* Centraliza botão de confirmação no mobile */
+  }
+  .confirm button {
+    width: 100%; /* Botão ocupa largura total em telas pequenas */
+  }
+}
+
+::ng-deep .mat-datepicker-content {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(183, 28, 28, 0.15);
+}
+
+/* Cabeçalho do calendário (mês/ano) */
+::ng-deep .mat-calendar-header {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Botões de navegação (setas) */
+::ng-deep .mat-calendar-previous-button,
+::ng-deep .mat-calendar-next-button {
+  color: white !important;
+}
+
+/* Botão do período (OCT 2025) */
+::ng-deep .mat-calendar-period-button {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Dias da semana (S, M, T, W...) */
+::ng-deep .mat-calendar-table-header {
+  color: #b71c1c;
+  font-weight: 600;
+}
+
+/* Células de datas */
+::ng-deep .mat-calendar-body-cell-content {
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Data selecionada/hoje */
+::ng-deep .mat-calendar-body-selected {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Hover em datas disponíveis */
+::ng-deep .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover .mat-calendar-body-cell-content {
+  background: rgba(183, 28, 28, 0.1);
+  transform: scale(1.1);
+}
+
+/* DATAS DESABILITADAS (passadas) - estilo cinza apagado */
+::ng-deep .mat-calendar-body-disabled {
+  cursor: not-allowed !important;
+  opacity: 0.3;
+}
+
+::ng-deep .mat-calendar-body-disabled > .mat-calendar-body-cell-content {
+  background: transparent !important;
+  color: #bdbdbd !important;
+  text-decoration: line-through;
+  cursor: not-allowed !important;
+}
+
+::ng-deep .mat-calendar-body-disabled > .mat-calendar-body-cell-content:hover {
+  background: transparent !important;
+  transform: none !important;
+}
+
+/* Data de hoje (anel ao redor) */
+::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border: 2px solid #b71c1c;
+  border-radius: 50%;
+}
+
+/* Animação suave ao abrir */
+::ng-deep .mat-datepicker-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

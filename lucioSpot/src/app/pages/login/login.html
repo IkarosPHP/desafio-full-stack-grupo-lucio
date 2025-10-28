@@ -1,0 +1,49 @@
+<div class="login-container">
+  <div class="login-banner">
+    <h1>LucioSpot</h1>
+  </div>
+
+  <div class="login-form-container">
+    <form *ngIf="!isRegisterMode" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <h2>Bem-vindo(a)</h2>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="Digite seu email" />
+
+      <label for="password">Senha</label>
+      <input id="password" type="password" formControlName="password" placeholder="Digite sua senha" />
+
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+      <p class="form-switch">
+        <span>Ainda não tem conta?</span>
+        <a href="#" (click)="toggleMode(); $event.preventDefault()"> Cadastre-se</a>
+      </p>
+    </form>
+
+    <form *ngIf="isRegisterMode" [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="login-form">
+      <h2>Crie sua conta</h2>
+      <label for="name">Nome</label>
+      <input id="name" type="text" formControlName="name" placeholder="Nome completo" />
+
+      <label for="emailRegister">Email</label>
+      <input id="emailRegister" type="email" formControlName="email" placeholder="Digite seu email" />
+
+      <label for="passwordRegister">Senha</label>
+      <input id="passwordRegister" type="password" formControlName="password" placeholder="Digite uma senha" />
+
+      <label for="confirmPassword">Confirmar senha</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirme a senha" />
+
+      <div *ngIf="registerForm.hasError('notMatching') && registerForm.touched" class="error-message">
+        As senhas não coincidem.
+      </div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+      <button type="submit" [disabled]="registerForm.invalid">Cadastrar</button>
+      <p class="form-switch">
+        <span>Já tem conta?</span>
+        <a href="#" (click)="toggleMode(); $event.preventDefault()"> Entrar</a>
+      </p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+.sidebar {
+  width: 350px;
+  background: var(--primary-red);
+  color: white;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s;
+  left: 0;
+  top: 0;
+}
+
+/* Hamburguer oculto no desktop */
+.hamburger {
+  display: none;
+}
+
+h1{
+  margin: 0;
+  font-family: 'inter';
+  text-align: center;
+  padding: 24px;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar li {
+  font-size: 18px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sidebar li:hover {
+  background: var(--dark-red);
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 2px 0 10px #0004;
+  }
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgb(255, 0, 0);
+    font-size: 2rem;
+    z-index: 10;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,107 @@
+h1{
+  font-family: 'Inter', sans-serif;
+  font-size: 9vh;
+  font-weight: 500;
+  color: var(--white);
+  text-shadow: #0000007c 1px 1px 10px;
+}
+
+/* Container principal */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: row;
+}
+
+/* Banner lateral */
+.login-banner {
+  flex: 1;
+  background-color: var(--primary-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container do formulário */
+.login-form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  box-shadow: #0000002c -6px 0px 20px 0px;
+}
+
+/* Formulário */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 350px;
+}
+
+.login-form h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.login-form label {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.login-form input {
+  margin-bottom: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: var(--dark-red);
+}
+
+.error-message {
+  color: var(--dark-red);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-banner {
+    display: none;
+  }
+
+  .login-form-container {
+    height: 100vh;
+  }
+
+  .login-form {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+a{
+  text-decoration: none;
+}

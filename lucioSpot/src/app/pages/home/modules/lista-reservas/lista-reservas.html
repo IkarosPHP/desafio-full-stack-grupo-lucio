@@ -1,0 +1,26 @@
+<div class="reservas-container">
+  <div *ngIf="reservas.length === 0" class="empty-message">
+    <p>Você não tem reservas.</p>
+  </div>
+
+  <div class="reservas-list" *ngIf="reservas.length">
+    <button *ngFor="let reserva of reservas" class="reserva-card" (click)="cancelarReserva(reserva)">
+      <div class="reserva-head">
+        <span class="reserva-mesa"><strong>Mesa:</strong> {{ mesas.get(reserva.idMesa) || reserva.idMesa }}</span>
+        <span class="reserva-status" [ngClass]="{
+          ativa: getStatus(reserva) === 'Ativa',
+          concluida: getStatus(reserva) === 'Concluída',
+          cancelada: getStatus(reserva) === 'Cancelada'
+        }">
+          {{ getStatus(reserva) }}
+        </span>
+      </div>
+      <hr />
+      <div class="reserva-details">
+        <div><strong>Dia:</strong> {{ reserva.data | date: 'dd/MM/yyyy' }}</div>
+        <div><strong>Horário:</strong> {{ horarios.get(reserva.idHorario) || reserva.idHorario }}</div>
+        <div><strong>Criada em:</strong> {{ timestampToDate(reserva.createdAt) }}</div>
+      </div>
+    </button>
+  </div>
+</div>

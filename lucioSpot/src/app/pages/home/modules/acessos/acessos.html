@@ -1,0 +1,28 @@
+<div class="usuarios-container">
+  <h2>Gestão de Acessos</h2>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.displayName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="isAdmin">
+      <th mat-header-cell *matHeaderCellDef>Administrador</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.isAdmin ? 'Sim' : 'Não' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef>Ação</th>
+      <td mat-cell *matCellDef="let usuario">
+        <button mat-raised-button color="primary" (click)="toggleAdmin(usuario)">
+          {{ usuario.isAdmin ? 'Remover admin' : 'Tornar admin' }}
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nome', 'email', 'isAdmin', 'acao']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nome', 'email', 'isAdmin', 'acao']"></tr>
+  </table>
+</div>

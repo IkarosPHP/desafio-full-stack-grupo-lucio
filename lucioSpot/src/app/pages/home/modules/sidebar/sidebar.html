@@ -1,0 +1,12 @@
+<button class="hamburger" *ngIf="isMobile" (click)="toggleMenu()">
+  {{ menuOpen ? '✖' : '☰' }}
+</button>
+
+<div class="sidebar" [class.open]="menuOpen">
+  <ul *ngIf="menuOpen">
+    <h1>LucioSpot</h1>
+    <li *ngFor="let item of menuItems" (click)="onSelect(item)">
+      {{ item }}
+    </li>
+  </ul>
+</div>

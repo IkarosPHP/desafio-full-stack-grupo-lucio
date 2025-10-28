@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    font-family: 'inter';
+}
+
+:root{
+    --primary-red: #b62e00;
+    --dark-red: #a32900;
+    --white: #f9f9f9;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

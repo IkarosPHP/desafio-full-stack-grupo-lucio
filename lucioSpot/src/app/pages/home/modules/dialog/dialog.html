@@ -1,0 +1,18 @@
+<div style="display: flex; flex-direction: column; align-items: center; padding: 24px 16px;">
+  <h2 mat-dialog-title style="margin: 0 0 12px 0; font-weight: bold; font-size: 1.3em; text-align: center;">
+    Confirmar Cancelamento
+  </h2>
+  <mat-dialog-content style="margin-bottom: 24px; text-align: center; color: #555;">
+    <p>
+      Deseja realmente cancelar a reserva da <strong>{{ mesas.get(data.idMesa) || data.idMesa }}</strong>
+      no dia <strong>{{ data.data | date:'dd/MM/yyyy' }}</strong>
+      no horário <strong>{{ horarios.get(data.idHorario) || data.idHorario }}</strong>?
+    </p>
+  </mat-dialog-content>
+<mat-dialog-actions align="center" style="gap: 16px;">
+  <button mat-stroked-button class="custom-dialog-button" (click)="onCancel()">Não</button>
+  <button mat-flat-button class="custom-dialog-button" (click)="onConfirm()" cdkFocusInitial>
+    Sim, cancelar
+  </button>
+</mat-dialog-actions>
+</div>

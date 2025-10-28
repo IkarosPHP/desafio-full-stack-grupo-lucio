@@ -1,0 +1,8 @@
+<div class="container">
+  <app-sidebar [menuItems]="getMenuLabels()" (select)="onMenuSelect($event)"></app-sidebar>
+  <main>
+    <h1>{{titulo}}</h1>
+    <hr>
+    <router-outlet></router-outlet>
+  </main>
+</div>
