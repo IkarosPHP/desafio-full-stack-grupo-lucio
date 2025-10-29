@@ -1,4 +1,4 @@
-Aqui está uma versão reformulada e formatada do seu README para o GitHub com melhor estrutura visual, hierarquia clara e destaque técnico otimizado para desenvolvedores:
+
 
 ***
 
